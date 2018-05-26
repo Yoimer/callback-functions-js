@@ -16,4 +16,34 @@ var y = function(callback) {
 // passing x as a fuction body, as a function itself.
 // we are not passing the resuslts
 // then we can execute it at some point.
-y(x);
+////y(x);
+
+// example of a simple process being done WITHOUT CALLBACK functions
+// var calc = function(num1, num2, calcType) {
+//     if (calcType === "add") {
+//         return num1 + num2;
+//     } else if (calcType === "multiply") {
+//         return num1 * num2;
+//     }
+// };
+
+// console.log(calc(2,3, 'add'));
+// console.log(calc(2,3, 'multiply'));
+
+
+// example of the same simple process being done WITH CALLBACK functions
+
+var add = function(a,b) {
+    return a + b;
+};
+
+var multiply = function(a,b) {
+    return a * b;
+};
+
+var calc = function(num1, num2, callback) {
+    return callback(num1, num2);
+};
+
+console.log(calc(2,3, add));
+console.log(calc(2,3, multiply));
