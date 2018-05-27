@@ -42,8 +42,28 @@ var multiply = function(a,b) {
 };
 
 var calc = function(num1, num2, callback) {
-    return callback(num1, num2);
+    //checking the if argument is a function
+    if (typeof callback === "function") {
+        return callback(num1, num2);
+    }
 };
 
 console.log(calc(2,3, add));
 console.log(calc(2,3, multiply));
+
+// adding a new function here
+var doWhatever = function(a,b) {
+    console.log(`here are your two numbers back ${a} , ${b}`);
+};
+
+console.log(calc(2,3, doWhatever));
+
+// we could also write function directly as an argument.
+// we don't really need it to be declared outside.
+// they are called anonimous function (no name for them)
+// when we want to use something just once,
+// we don't want to define it and pass it.
+// you can just write it and use it as a function argument
+console.log(calc(2,3, function(a,b) {
+    return a - b;
+}));
