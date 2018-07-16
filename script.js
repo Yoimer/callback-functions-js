@@ -136,36 +136,65 @@
 /*Function constructor*/
 
 // object literal
-var objProto = {
-    //method
-    greet: function() {
-        console.log(this.greeting + " World!");
-    }
-};
+// var objProto = {
+//     //method
+//     greet: function() {
+//         console.log(this.greeting + " World!");
+//     }
+// };
 
 // constructor function
 // upper case in a variable means a constructor
-var Greeting = function(term) {
-    this.greeting = term;
-};
+// var Greeting = function(term) {
+//     this.greeting = term;
+// };
 
-// establishing prototype
-Greeting.prototype = objProto;
+// // establishing prototype
+// Greeting.prototype = objProto;
 
-// Greeting will allow us to create a new object
-// by using the keyword new
-var obj1 = new Greeting("Howdy");
+// // Greeting will allow us to create a new object
+// // by using the keyword new
+// var obj1 = new Greeting("Howdy");
 
-////////////////////////////////////////////////////////
-/*using Object.create*/
-var obj2 = Object.create(objProto);
-// adds methods by dot notation
-obj2.greeting = "Hi";
+// ////////////////////////////////////////////////////////
+// /*using Object.create*/
+// var obj2 = Object.create(objProto);
+// // adds methods by dot notation
+// obj2.greeting = "Hi";
 
-////////////////////////////////////////////////
-//Using Object.setPrototypeOf(obj, prototype)
-var obj3 = {
-    greeting: "Hello"
-};
+// ////////////////////////////////////////////////
+// //Using Object.setPrototypeOf(obj, prototype)
+// var obj3 = {
+//     greeting: "Hello"
+// };
 
-Object.setPrototypeOf(obj3, objProto);
+// Object.setPrototypeOf(obj3, objProto);
+
+//////Callback example from https://scotch.io/courses/10-need-to-know-javascript-concepts/callbacks-promises-and-async
+
+function greeting(name) {
+    //ES6 template string
+    console.log(`Hello ${name}, welcome to Scotch!`);
+}
+
+greeting('Yoimer');
+
+// The above function is assigned a name greeting and has an argument of name. 
+// We're also using an ES6 template string. 
+// Let’s use this function as a callback function.
+
+function introduction(firstName, lastName, callback) {
+    const fullName = `${firstName} ${lastName}`;
+
+    callback(fullName);
+
+    console.log('example');
+}
+
+introduction('Chris','Nwamba', greeting); // Hello Chris Nwamba, welcome to Scotch!
+
+/* Notice the usage of the callback? The succeeding brackets, () after the function are not used when passing the function as a parameter.
+Note: The callback function is not run unless called by its containing function, it is called back. 
+Hence, the term call back function
+Multiple functions can be created independently and used as callback functions. 
+These create multi-level functions. When this function tree created becomes too large, the code becomes incomprehensible sometimes and is not easily refactored. This is known as callback hell. Let’s see an example: */
