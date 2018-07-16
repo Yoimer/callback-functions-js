@@ -174,7 +174,7 @@
 
 function greeting(name) {
     //ES6 template string
-    console.log(`Hello ${name}, welcome to Scotch!`);
+    // console.log(`Hello ${name}, welcome to Scotch!`);
 }
 
 greeting('Yoimer');
@@ -188,7 +188,7 @@ function introduction(firstName, lastName, callback) {
 
     callback(fullName);
 
-    console.log('example');
+    // console.log('example');
 }
 
 introduction('Chris','Nwamba', greeting); // Hello Chris Nwamba, welcome to Scotch!
@@ -198,3 +198,63 @@ Note: The callback function is not run unless called by its containing function,
 Hence, the term call back function
 Multiple functions can be created independently and used as callback functions. 
 These create multi-level functions. When this function tree created becomes too large, the code becomes incomprehensible sometimes and is not easily refactored. This is known as callback hell. Let’s see an example: */
+
+/////////////////////////map example
+
+
+//separated function
+// incrementByOne = function (element) {
+//     return element + 1;
+// }
+
+// myArray = [1,2,3,4];
+// myArray.map(incrementByOne); // returns [2,3,4,5]
+
+
+
+//anonymous function
+// myArray = [1,2,3,4];
+// myArray.map(function(element) {
+//   return element + 1;
+// });
+
+//anonymous function complex example
+/* var rockets = [
+    { country:'Russia', launches:32 },
+    { country:'US', launches:23 },
+    { country:'China', launches:16 },
+    { country:'Europe(ESA)', launches:7 },
+    { country:'India', launches:4 },
+    { country:'Japan', launches:3 }
+];
+
+var launchOptimistic = rockets.map(function(elem) {
+  return {
+    country: elem.country,
+    launches: elem.launches + 10,
+  } 
+});
+
+console.log(launchOptimistic);
+ */
+/*
+0:{country: "Russia", launches: 42}
+1:{country: "US", launches: 33}
+2:{country: "China", launches: 26}
+3:{country: "Europe(ESA)", launches: 17}
+4:{country: "India", launches: 14}
+5:{country: "Japan", launches: 13}
+*/
+
+//anonymous function
+// myArray = [1,2,3,4];
+// console.log(myArray.map(function(element) {
+//   return element + 1;
+// }));
+
+// //anonymous function with variable
+// myArray = [1,2,3,4];
+// let newArray = myArray.map(function(element) {
+//   return element + 1;
+// });
+// console.log(newArray);
